@@ -16,6 +16,7 @@ html {
     background-attachment: fixed;
     height: 100%;
     width: 100%;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -84,11 +85,15 @@ input {
 .bg-primary-light {
     background-color: #3C5A74;
 }
+.teste {
+    border: 1px solid #fff;
+}
 
 /* Classes Header */
 .header-background {
     position: fixed;
     width: 100vw;
+    z-index: 2;
 }
 .logo {
     padding: 1vw;
@@ -136,9 +141,152 @@ input {
     line-height: 60px;
 }
 
+/* Classes NavBar Menu HB */
+.hb {
+    display: none;
+}
+
 /* Class main */
-.min-section {
-    height: 100vh;
+.base-section {
+    min-height: 100vh;
+    background-color: #fcf7ea;
+    padding: 1.5em;
+}
+.sobre-intro {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+.sobre-intro img {
+    width: 100%;
+    height: 40vw;
+    opacity: 0.35;
+}
+.sobre-intro h1 {
+    position: absolute;
+    top: 10vw;
+    width: 100%;
+    text-align: center;
+    color: #ff0000;
+    font-size: 4vw;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px #213242;
+    font-family: "Quicksand";
+}
+.sobre-intro p {
+    position: absolute;
+    top: 20vw;
+    width: 100%;
+    padding: 0 5vw;
+    text-align: center;
+    color: #213242;
+    font-size: 2vw;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px #3C5A74;
+}
+.container {
+    padding: 3vw;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.container-column01 {
+    overflow: hidden;
+    margin: 1vw 0;
+    border-radius: 24px 0 0 24px;
+}
+.container-column01 img {
+    width: 100%;
+    vertical-align: middle;
+}
+.container-column02 {
+    overflow: hidden;
+    margin: 1vw 0;
+    border-radius: 0 24px 24px 0;
+    background-color: #213242;
+}
+.container-column03 {
+    position: relative;
+    overflow: hidden;
+    margin: 1vw 0;
+    border-radius: 24px 0 0 24px;
+    background-color: #213242;
+}
+.container-column04 {
+    overflow: hidden;
+    margin: 1vw 0;
+    border-radius: 0 24px 24px 0;
+}
+.container-column04 img {
+    width: 100%;
+    vertical-align: middle;
+}
+.container-text {
+    position: relative;
+    padding: 2vw;
+}
+.container-text h2 {
+    color: #e1c888;
+    font-weight: 600;
+    font-family: "Quicksand";
+    font-size: 1.5vw;
+}
+.container-text p {
+    color: #fcf7ea;
+    font-size: 1.1vw;
+}
+.container-button {
+    display: inline-block;
+    position: absolute;
+    right: 2em;
+    background-color: #b60303;
+    border: none;
+    border-radius: 24px;
+    color: #fcf7ea;
+    text-align: center;
+    padding: 1.2vw;
+    width: 11vw;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 0.5em;
+}
+.container-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  font-size: 1.1vw;
+}
+.container-button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.container-button:hover span {
+  padding-right: 25px;
+}
+.container-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.container-brands {
+    position: absolute;
+    bottom: 1em;
+    left: 1.5em;
+    width: 50%;
+}
+.container-brands-li {
+    display:table-cell;
+}
+.container-brands-li img {
+    width: 3vw;
+    vertical-align: middle;
+    margin: 0 0 0 1.5rem;
+    cursor: pointer;
 }
 
 /* Class footer */
@@ -178,4 +326,129 @@ input {
     position: absolute;
     bottom: 1em;
     right: 1em;
+}
+
+/* Smartphones - Paisagem */
+@media (max-width: 916px) {
+    .container {
+        grid-template-columns: 100%;
+    }
+    .container-column-r01 {
+        margin: 0;
+        border-radius: 24px 24px 0 0;
+    }
+    .container-column-r02 {
+        margin: 0;
+        border-radius: 0 0 24px 24px;
+    }
+    .container-button {
+        top: 2em;
+        width: 13vw;
+    }
+    .container-button span {
+        font-size: 1vw;
+    }
+    .container-brands {
+        display: none;
+    }
+    .container-text h2 {
+        font-weight: 400;
+        font-size: 2vw;
+    }
+    .container-text p {
+        font-size: 1.5vw;
+    }
+    .footerSocial a i {
+        font-size: 2.5em;
+    }
+
+}
+
+@media (max-width: 571px) {
+    .slogan {
+        left: 40vw;
+    }
+    .container-button {
+        width: 18vw;
+        top: 1em;
+    }
+    .container-button span {
+        font-size: 1.6vw;
+    }
+    .container-text {
+        padding-top: 0;
+    }
+    .container-text h2 {
+        padding-top: 20px;
+        font-weight: 300;
+        font-size: 2.5vw;
+    }
+    .container-text p {
+        font-size: 2vw;
+    }
+    .footerSocial {
+        width:3.5em;
+    }
+    .footerSocial a i {
+        font-size: 2em;
+    }
+    .footerResponsive {
+        display:none;
+    }
+    
+}
+
+/* Smartphones - Retrato */
+@media (max-width: 415px) and (orientation: portrait) {
+    main {
+        padding-top: calc(2vh + 5rem);
+    }
+    .logo {
+        width: 20vw;
+    }
+    .slogan {
+        display: none;
+    }
+    .header-cadastro {
+        display: none;
+    }
+    .menu {
+        display: none;
+    }
+    .hb {
+        display: inline-block;
+    }
+    .menu-hb-icon {
+        position: absolute;
+        right: 1.5em;
+        bottom: 0.5em;
+        color: #e1c888;
+        cursor: pointer;
+    }
+    .menu-hb-navbar {
+        display: none;
+        position: absolute;
+        right: 1.5em;
+        background-color: #213242;
+        padding: 0.5vw 2em 0.5vw 2em;
+        border: 1px solid #fcf7ea;
+        font-size: 5vw;
+    }
+    .menu-hb-navbar ul li {
+        width: 100%;
+        padding-top: 1.2vw;
+    }
+    .menu-hb-navbar ul li a:hover {
+        color: #ff0000;
+    }
+    .base-section {
+        padding: 0.5em;
+    }
+    .footerSocial {
+        width:3em;
+    }
+    .footerToTop {
+        display: none;
+    }
+
 }
