@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Now!!!</title>
+    
+    <link rel="stylesheet" href="/src/css/style_game.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="/src/js/tela01.js" async></script>
+</head>
+<body>
+    <header></header>
+    <main>
+        <div class="boxUser d-flex">
+            <span id="user"></span>
+        </div>
+        <div>
+            <!-- Tela Inicial -->
+            <div id="telaInicial" class="init">
+                <div class="d-flex ">
+                    <img src="/images/game/question.png" alt="question">
+                    <img src="/images/game/question.png" alt="question">
+                    <img src="/images/game/question.png" alt="question">
+                </div>
+                <div class="mt-5">
+                    <input type="text" id="nome" class="input_nome" placeholder="Digite seu nome aqui :)">
+                    <button id="btnJogar" class="button pointer">I N I C I A R</button>
+                </div>
+            </div>
+            <!-- Fim Tela Inicial -->
+
+            <!-- Tela Jogo -->
+            <div id="telaJogo" class="init hide">
+               
+                    <div class="d-flex pontos">
+                        <p>Pontos: <span id="pontuacao">0</span></p>
+                        <p>Resultado Anterior: <span id="anterior"></span></p>
+                        <p>Tentativas: <span id="tentativas">10</span></p>
+                    </div>
+                    <div id="numbers" class="d-flex">
+                        <div class="box">
+                            <img class ="hidden-box" src="/images/game/question.png" alt="question">
+                            <img class ="hidden-box" src="/images/game/question.png" alt="question">
+                            <img class ="hidden-box" src="/images/game/question.png" alt="question">
+                        </div>
+                     </div>
+                   <button id="btnPlay" class="button">J O G A R</button>
+               
+            </div>
+            <!-- Fim Tela Jogo -->          
+        </div>
+
+        <!-- MODAL -->
+        <div class="modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title"></h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="mensagemRegras" class="hide"></div>
+                        <!-- Tela Winner - Looser -->
+                        <div id="winLooser" class="hide">
+                            <img src="" class="img-fluid" alt="winner-looser">
+                        </div>
+                        <!-- Fim Tela - Winner - Looser -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script>
+$().ready(function() {
+    $('#btnJogar').click(function() {
+        $('#mensagemRegras').html("")
+        $('#winLooser').addClass('hide')
+
+        $('.modal').modal('show')
+        $('#mensagemRegras').removeClass('hide')
+
+        $('<h3 />', {
+            text: 'Regras',
+            class: 'mt-3 text-center'
+        }).appendTo('#mensagemRegras')
+        $('<ul />', {
+            id: 'regras_list'
+        }).appendTo('#mensagemRegras')
+        $('<li />', {
+            text: 'Se os três números forem iguais, marcam 1 ponto'
+        }).appendTo('#regras_list')
+        $('<li />', {
+            text: 'Se a sequencia atual for a mesma da sequencia anterior, marcam 2 pontos'
+        }).appendTo('#regras_list')
+        $('<p />', {
+            text: 'Ao final de 10 tentativas, ganha o jogador que fizer mais de 3 pontos!',
+            class: 'mt-5 text-center'
+        }).appendTo('#mensagemRegras')
+    })
+    
+})
+</script>
+</html>
